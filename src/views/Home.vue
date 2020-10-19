@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="spinner-border" v-if="loading === true" role="status">
+        <span class="sr-only">Cargando...</span>
+      </div>
+    </div>
     <br>
     <div class="row mt-5">
       <div v-for="entrada of entradas" :key="entrada.IdEntrada" class="col-12 card mb-3">
@@ -30,7 +35,14 @@
 <script>
 export default {
   async mounted() {
+    this.loading = true;
     await this.$store.dispatch('cargarEntradas');
+    this.loading = false;
+  },
+  data() {
+    return {
+      loading: false
+    };
   },
   computed: {
     entradas() {

@@ -21,6 +21,11 @@ const routes = [
     name: 'Init',
     component: Home,
   },
+  {
+    path: '',
+    name: 'InitBlank',
+    component: Home,
+  },
 ]
 
 const router = new VueRouter({

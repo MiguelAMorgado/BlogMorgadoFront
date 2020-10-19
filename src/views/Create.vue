@@ -117,6 +117,7 @@ export default {
         data.append('texto', this.texto);
 
         await this.$store.dispatch('subirEntrada', data);
+        await this.$router.push('/home');
       }
     },
     falseInputClick() {
